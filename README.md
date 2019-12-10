@@ -8,4 +8,7 @@
 ## License
 
 This project is forked by react js boilerplate Copyright (c) 2019 Erik Bridges
- For more information see `LICENSE.md`.
+<br />
+Copyright (c) 2019 Maximilian Stoiber - Forked React Js Boilerplate
+<br />
+For more information see `LICENSE.md`.
