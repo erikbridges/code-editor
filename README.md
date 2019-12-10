@@ -4,7 +4,9 @@
 
 <div align="center"><strong>JavaScript Code Editor</strong></div>
 <div align="center">A  JavaScript Code Editor Powered by React Js</div>
-
+<div>
+  This is a javascript playground build under react ace. You can play around with the code and get some nifty results. Play around and see what you can find. It can't run console.logs or alert statments as of right now but, it can run simple expressions like 2 + 2.
+ </div>
 ## License
 
 This project is forked by react js boilerplate Copyright (c) 2019 Erik Bridges
