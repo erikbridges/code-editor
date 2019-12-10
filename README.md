@@ -3,7 +3,7 @@
 <br />
 
 <div align="center"><strong>JavaScript Code Editor</strong></div>
-<div align="center">A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices</div>
+<div align="center">A  JavaScript Code Editor Powered by React Js</div>
 
 ## License
 
