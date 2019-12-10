@@ -1,0 +1,31 @@
+.editor {
+  margin: 0 auto;
+  display: block;
+  background: #333;
+}
+.editorMain {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+.btnWrap {
+  margin: 10px auto;
+}
+.btnWrap button {
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  border: none;
+  padding: 10px 15px;
+}
+.btnWrap button:hover {
+  color: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  opacity: 0.5;
+}
+.outputBox {
+  display: block;
+  height: 100vh;
+  color: #f4f4f4;
+  padding: 20px;
+}
