@@ -7,7 +7,8 @@
 
 import React, { useState } from 'react';
 import AceEditor from 'react-ace';
-import safeEval from 'notevil';
+import clones from 'clones';
+import safeEval from 'safer-eval';
 // Import a Mode (language)
 import 'brace/mode/javascript';
 
@@ -25,14 +26,26 @@ function TextEditor() {
     });
   }
   function onSubmit() {
-    const { codeText } = state;
-    console.log(codeText);
-    const output = safeEval(codeText);
-    console.log(output);
-    return setState({
-      ...state,
-      output,
-    });
+    try {
+      const { codeText } = state;
+      const context = {
+        window: {
+          btoa: clones(window.btoa, window),
+        },
+      };
+      console.log(codeText);
+      const output = safeEval(codeText, context);
+      console.log(output);
+      return setState({
+        ...state,
+        output,
+      });
+    } catch (ex) {
+      return setState({
+        ...state,
+        output: 'Unknown Error',
+      });
+    }
   }
 
   return (
@@ -48,6 +61,7 @@ function TextEditor() {
           editorProps={{ $blockScrolling: true }}
           fontSize={18}
           width="100%"
+          height="400px"
           enableLiveAutocompletion
           value={state.codeText}
         />

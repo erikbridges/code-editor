@@ -25,7 +25,12 @@
 }
 .outputBox {
   display: block;
-  height: 100vh;
   color: #f4f4f4;
   padding: 20px;
+  overflow: hidden;
+  height: 50vh;
+}
+.outputBox p {
+  padding: 10px;
+  font-size: 2rem;
 }
