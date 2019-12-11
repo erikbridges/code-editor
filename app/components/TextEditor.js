@@ -7,8 +7,7 @@
 
 import React, { useState } from 'react';
 import AceEditor from 'react-ace';
-import clones from 'clones';
-import safeEval from 'safer-eval';
+import Sandbox from 'worker-sandbox';
 // Import a Mode (language)
 import 'brace/mode/javascript';
 
@@ -25,26 +24,24 @@ function TextEditor() {
       codeText: newValue,
     });
   }
-  function onSubmit() {
+  async function onSubmit() {
+    const sandbox = new Sandbox();
     try {
       const { codeText } = state;
-      const context = {
-        window: {
-          btoa: clones(window.btoa, window),
-        },
-      };
-      console.log(codeText);
-      const output = safeEval(codeText, context);
+      const output = await sandbox.eval(codeText);
       console.log(output);
       return setState({
         ...state,
         output,
       });
     } catch (ex) {
+      console.log(ex);
       return setState({
         ...state,
         output: 'Unknown Error',
       });
+    } finally {
+      sandbox.destroy();
     }
   }
 
